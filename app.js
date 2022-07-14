@@ -6,22 +6,14 @@ const port = 3000
 
     // information using ejs
     app.set('view engine', 'ejs') 
-
+    //mmenggunakan ejs layouts
     app.use(expressEjsLayouts)
+    // Memberikan akses terhadap folder public
     app.use(express.static('public'))
+    // menampilkan Log activity
     app.use(morgan('dev'))
     app.set('layout', './layout/main-layout')
-    
-    // morgan(function(tokens,req, res) {
-    //     return [
-    //         tokens.method(req, res),
-    //         tokens.url(req, res),   
-    //         tokens.status(req, res),
-    //         tokens.res(req, res, 'content-length'), '-',
-    //         tokens['response-time'](req, res), 'ms'
-    //     ].join('');
-    // })
-    
+    // Middleware configuration
     app.use((req, res, next) => {
         console.log('Time:', Date.now())
         next()
@@ -29,6 +21,7 @@ const port = 3000
 
     app.get('/', (req, res) => {
     // res.send('Hello World!')
+    // membuat array yang berisi objek
     cont = [
         {
             name:'adi riyanto',
