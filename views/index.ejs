@@ -1,0 +1,20 @@
+
+    <!-- mainbody -->
+      
+      <h1>Web Server Node JS</h1>
+      <p>Welcome to my page <%= nama %> </p>
+      <h1>Contact List : </h1>
+      <ul>
+       
+        <% if (cont.length < 1 ) { %>
+         <p>Contact Data empty</p>
+        <% } else {%>
+        <% cont.forEach(data => { %>
+          <li>Name : <%= data.name %> </li>
+          <li>Email : <%= data.email %> </li>
+        <% }) %>
+        <% } %>
+ 
+      </ul>
+    
+    
